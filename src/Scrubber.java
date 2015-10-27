@@ -28,7 +28,8 @@ public class Scrubber {
 			imgTag = imgTag.replace("\n", "").replace("\r", "");
 			
 			// check if the img is too small to see
-			if (imgTag.matches(".*height=(3D)?['\"]?[01]['\"]?[ >].*") && imgTag.matches(".*width=(3D)?['\"]?[01]['\"]?[ >].*")) {
+			if (imgTag.matches(".*height=(3D)?['\"]?[01]['\"]?[ >].*") && 
+				imgTag.matches(".*width=(3D)?['\"]?[01]['\"]?[ >].*")) {
 				points.add(prevIndex);
 				points.add(idx);
 			}
