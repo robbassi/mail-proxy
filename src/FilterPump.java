@@ -18,7 +18,11 @@ public class FilterPump extends Pump {
 			while ((line = in.readLine()) != null) {
 				System.out.println(line);
 				
-				if (line.endsWith("}") && line.contains("FETCH")) {
+				if (line.startsWith("* CAPABILITY")) {
+					line = line.replace("COMPRESS=DEFLATE", "");
+				}
+				
+				if (line.endsWith("}") && line.contains("BODY")) {
 					buffered = true;
 					message = "";
 					bufferedBytes = Integer.parseInt(line.substring(line.lastIndexOf("{") + 1, line.length() - 1));
